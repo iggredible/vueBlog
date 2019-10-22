@@ -1,0 +1,47 @@
+---
+title: Share your methods to measure and improve personal productivity!
+published: true
+description: productivity tips discussion
+tags: discuss, productivity, tips, self-improvement
+---
+
+I wanted to see what system you guys have to measure and improve your productivity outside of work. By productivity, I mean everything from self-improvement, contributing to open source, or maintaining side projects or business. 
+
+## Personal example
+
+**Everyday, for 6 days a week, I try to accumulate at least 90 productivity minutes**. I define *productivity minutes* loosely: any time spent reading or writing outside of work. 
+
+I use [forest](https://www.forestapp.cc/) app to keep track of time - it is a distraction-free pomodoro app (to be honest, a simple stopwatch can accomplish same thing). 
+
+For example, I wake up around 6:30 (or 7 if I'm really tired 😅) and read for **10 minutes**. Then around breakfast, I would read some articles for **10-15** minutes and write (usually for dev.to) for **5-30** minutes. Then I'm off to work. During lunch, sometimes I would code for **30 minutes**. During my commute, I would listen to audiobooks (thanks, [scribd](https://www.scribd.com/)!) for **10-15 minutes** each way. After work, in the evening, I would code/ read for **30+ minutes**.
+
+The schedule above would yield me a good 100 minutes per day. I usually take Sunday off as my day of rest. I would still read and write, but I would only impose 25 productivity minutes instead of 90.
+
+## Problems 
+
+Some of the problem I am starting to see with my method:
+
+1. *All minutes are counted equally when not all minutes spent doing different things do not yield equal result.* I think the time spent producing things (writing articles, writing code for open source) is more valuable than the time spent reading. I am definitely not undervaluing reading here; I am a HUGE advocate of reading a lot of stuff everyday - I am saying in the long run, psychologically, I would want to spend more time reading all the time because it is easier to read than actually writing and producing things; it takes more effort for me to write code than to read code. I would think, "why not accumulate all my productivity minutes reading if writing takes more effort and counts the same as reading?". 
+
+2. *There is a tendency to sacrifice life by wanting to accumulate more minutes everyday.* I notice that I would rather spend my evening reading and writing than spending it with my wife (retrospectively, I don't think spending whole evening in front of screen with your spouse is healthy either). It is easy to gravitate doing stuff for yourself than for others.
+
+<hr />
+
+There you have mine. I am curious to see what you guys do. Don't feel obligated to share every little detail. I would like to hear what you guys do to measure and improve your productivity so we can learn from each other and come up with the solution that is best for each of us! and anything that matches `f[^\s]*\s` pattern.
+
+```
+git grep --all-match -l -e "f[^\s]*\s" -e bar $(git rev-list --all)
+```
+
+
+That's it! I find git grep more convenient than traditional grep or find when I need to search file contents inside working tree. Of course, find/grep have their own usage that git grep can't do, but that's for another time. 
+
+# Resources
+
+- [git grep](https://remarkablemark.org/blog/2017/05/07/git-grep/)
+- [git-grep doc](https://git-scm.com/docs/git-grep)
+- [Search git repo like a ninja](http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/)
+- [fun with git grep](https://gitster.livejournal.com/27674.html)
+
+
+Happy hacking!
