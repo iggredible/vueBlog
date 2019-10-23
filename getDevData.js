@@ -17,11 +17,9 @@ axios.get(process.env.URL, options)
   .then(response => {
     fs.mkdirSync(targetDir, {recursive: true});
     data = response.data;
-    data.forEach(article => {
-      const title = article.title.toLowerCase().replace(/(\s|:)/g, "_").replace(/.*(_?!)$/g,"");
-      fs.writeFile(`${targetDir}${title}.markdown`,  article.body_markdown, (err) => {
-        if(err) throw err;
-      })
+    fs.writeFile(`${targetDir}DevTo.json`, JSON.stringify(data), err => {
+      if(err) throw err;
+      console.log("Dev.to data fetched successfully!")
     })
   })
 
