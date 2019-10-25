@@ -17,9 +17,26 @@ axios.get(process.env.URL, options)
   .then(response => {
     fs.mkdirSync(targetDir, {recursive: true});
     data = response.data;
-    fs.writeFile(`${targetDir}DevTo.json`, JSON.stringify(data), err => {
+    // normalize here
+    // per https://gist.github.com/letanure/8b4e8ee8f7b065860df942f0e53d6fc9#section-2-advanced
+    // it is good to normalize array into object, if possible
+    const normalizedDevData = JSON.stringify(convertArrayToObject(data, 'slug'))
+
+    console.log(normalizedDevData.keys)
+    fs.writeFile(`${targetDir}DevTo.json`, normalizedDevData, err => {
       if(err) throw err;
       console.log("Dev.to data fetched successfully!")
     })
   })
 
+
+const convertArrayToObject = (array, key) => {
+  const initialValue = {};
+  return array.reduce((obj, item) => {
+    return {
+      ...obj,
+      [item[key]]: item,
+      id: item
+    };
+  }, initialValue);
+};
