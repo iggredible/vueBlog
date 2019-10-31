@@ -23,8 +23,6 @@
 <script>
 import devJson from '../../data/dev/DevTo.json';
 
-const readableDate = (dateStr) => new Date(Date.parse(dateStr));
-
 export default {
   data() {
     return {

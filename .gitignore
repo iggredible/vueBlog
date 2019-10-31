@@ -2,6 +2,8 @@
 node_modules
 /dist
 
+src/data/dev/*
+!src/data/dev/.gitkeep
 # local env files
 .env
 .env.local
