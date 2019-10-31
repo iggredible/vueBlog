@@ -49,9 +49,6 @@ export default {
   &__container {
     margin: 0 20px;
   }
-  &__header {
-    /* margin-left: 40px; */
-  }
   &__feed {
     list-style-type: none;
     margin-bottom: 48px;
@@ -64,7 +61,6 @@ export default {
   &__feed-link {
     text-decoration: none;
     color: #2c3e50;
-
     &:hover {
       text-decoration: underline;
     }
