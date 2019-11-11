@@ -2,8 +2,11 @@
 node_modules
 /dist
 
+# ignoring contents inside dev/
+# https://stackoverflow.com/questions/5600621/gitignore-exclude-files-in-directory-but-not-certain-directories
 src/data/dev/*
 !src/data/dev/.gitkeep
+
 # local env files
 .env
 .env.local
