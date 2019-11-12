@@ -1,26 +1,21 @@
-import About from './components/About.vue';
-import Blog from './components/blogs/Blog.vue';
-import Blogs from './components/blogs/Blogs.vue';
+import Blog from "./components/blogs/Blog.vue";
+import Blogs from "./components/blogs/Blogs.vue";
 
-const routes =   {
-  mode: 'history',
+const routes = {
+  mode: "history",
   routes: [
     {
-      path: '/blogs',
+      path: "/blogs",
       component: Blogs,
-      name: 'Blogs'
+      name: "Blogs",
+      alias: "/"
     },
     {
-      path: '/about',
-      component: About,
-      name: 'About'
-    },
-    {
-      path: '/blog/:slug',
+      path: "/blog/:slug",
       component: Blog,
-      name: 'Blog'
+      name: "Blog"
     }
   ]
-}
+};
 
 export default routes;

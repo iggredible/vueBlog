@@ -1,13 +1,11 @@
 <template>
   <div class="nav">
-    <router-link class="nav__item" to='/blogs'>Blogs</router-link>
-    <router-link class="nav__item" to='/about'>About</router-link>
+    <router-link class="nav__item" to="/blogs">Blogs</router-link>
   </div>
 </template>
 
 <script>
-export default {
-}
+export default {};
 </script>
 
 <style>

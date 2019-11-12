@@ -1,26 +1,36 @@
 <template>
   <div id="app">
-    <Nav />
-    <router-view />
+    <div class="app__container">
+      <Nav />
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
-import Nav from './components/nav/Nav.vue'
+import Nav from "./components/nav/Nav.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Nav
   }
-}
+};
 </script>
 
-<style>
+<style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+.app {
+  &__container {
+    padding: 2rem 1rem;
+    max-width: 645px;
+    margin: 0 auto;
+  }
 }
 </style>
