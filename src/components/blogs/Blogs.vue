@@ -3,7 +3,7 @@
     <ul class="blogs__list">
       <li
         class="blogs__feed"
-        v-for="article in devJsonKeys"
+        v-for="article in sortedByDateDevJsonKeys"
         v-bind:key="article"
       >
         <div class="blogs__feed-meta-container">
@@ -31,8 +31,25 @@ export default {
     };
   },
   computed: {
-    devJsonKeys() {
-      return Object.keys(devJson);
+    sortedByDateDevJsonKeys() {
+      const devJsonCopy = devJson;
+      const devJsonKeys = Object.keys(devJsonCopy);
+      devJsonKeys.forEach(devJsonKey => {
+        const devJsonCopyKeyPublishedAt = devJsonCopy[devJsonKey].published_at;
+        devJsonCopy[
+          devJsonKey
+        ].published_at = devJsonCopyKeyPublishedAt.replace(/T.*/, "");
+      });
+
+      // this function could be rfactored so it does not depend on devJsonCopy
+      const dateSortFunc = (a, b) => {
+        const aa = devJsonCopy[a].published_at.split("-").join(),
+          bb = devJsonCopy[b].published_at.split("-").join();
+        return aa < bb ? -1 : aa > bb ? 1 : 0;
+      };
+      const sortedKeys = devJsonKeys.sort(dateSortFunc).reverse();
+      // const sortedKeys = sortDevJsonKeys(devJsonKeys)(dateSortFunc).reverse();
+      return sortedKeys;
     }
   },
   methods: {
@@ -58,7 +75,6 @@ export default {
   }
   &__feed-link {
     text-decoration: none;
-    color: #2c3e50;
     &:hover {
       text-decoration: underline;
     }

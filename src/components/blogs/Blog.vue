@@ -22,3 +22,15 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+.blog {
+  &__container {
+    img {
+      height: auto;
+      position: relative;
+      display: block;
+      margin: auto;
+    }
+  }
+}
+</style>
