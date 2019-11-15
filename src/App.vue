@@ -51,4 +51,7 @@ p {
 a {
   color: #0074d9;
 }
+pre code {
+  color: #444;
+}
 </style>

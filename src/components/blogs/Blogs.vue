@@ -31,9 +31,12 @@ export default {
     };
   },
   computed: {
+    devJsonKeys() {
+      return Object.keys(devJson);
+    },
     sortedByDateDevJsonKeys() {
-      const devJsonCopy = devJson;
-      const devJsonKeys = Object.keys(devJsonCopy);
+      const devJsonCopy = { ...devJson };
+      const devJsonKeys = this.devJsonKeys;
       devJsonKeys.forEach(devJsonKey => {
         const devJsonCopyKeyPublishedAt = devJsonCopy[devJsonKey].published_at;
         devJsonCopy[
@@ -41,14 +44,12 @@ export default {
         ].published_at = devJsonCopyKeyPublishedAt.replace(/T.*/, "");
       });
 
-      // this function could be rfactored so it does not depend on devJsonCopy
       const dateSortFunc = (a, b) => {
         const aa = devJsonCopy[a].published_at.split("-").join(),
           bb = devJsonCopy[b].published_at.split("-").join();
         return aa < bb ? -1 : aa > bb ? 1 : 0;
       };
       const sortedKeys = devJsonKeys.sort(dateSortFunc).reverse();
-      // const sortedKeys = sortDevJsonKeys(devJsonKeys)(dateSortFunc).reverse();
       return sortedKeys;
     }
   },
