@@ -27,3 +27,5 @@ yarn-error.log*
 *.sw?
 tags
 
+# Hosting
+.firebase*
