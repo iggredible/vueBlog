@@ -7,12 +7,16 @@
         v-bind:key="article"
       >
         <div class="blogs__feed-meta-container">
-          <time class="blogs__time">{{
+          <time class="blogs__time" v-if="devJson">{{
             readableDate(devJson[article].published_at)
           }}</time>
         </div>
         <h2 class="blogs__feed-title">
-          <router-link class="blogs__feed-link" :to="`/blog/${article}`">
+          <router-link
+            v-if="devJson"
+            class="blogs__feed-link"
+            :to="`/blog/${article}`"
+          >
             {{ devJson[article].title }}
           </router-link>
         </h2>
@@ -22,20 +26,22 @@
 </template>
 
 <script>
-import devJson from "../../data/dev/DevTo.json";
-
 export default {
   data() {
     return {
-      devJson
+      devJson: {}
     };
+  },
+  created() {
+    this.$store.dispatch("getDevJsonData");
+    this.devJson = this.$store.state.devJson;
   },
   computed: {
     devJsonKeys() {
-      return Object.keys(devJson);
+      return Object.keys(this.devJson);
     },
     sortedByDateDevJsonKeys() {
-      const devJsonCopy = { ...devJson };
+      const devJsonCopy = { ...this.devJson };
       const devJsonKeys = this.devJsonKeys;
       devJsonKeys.forEach(devJsonKey => {
         const devJsonCopyKeyPublishedAt = devJsonCopy[devJsonKey].published_at;
