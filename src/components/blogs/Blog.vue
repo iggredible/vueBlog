@@ -32,5 +32,9 @@ export default {
       margin: auto;
     }
   }
+
+  &__header {
+    font-size: 3rem;
+  }
 }
 </style>

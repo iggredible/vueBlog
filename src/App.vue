@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="dark">
     <div class="app__container">
       <Nav />
       <router-view />
@@ -53,5 +53,30 @@ a {
 }
 pre code {
   color: #444;
+}
+
+#app.dark {
+  a {
+    color: #82ccdd;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #eeeeee;
+  }
+
+  div,
+  span,
+  p {
+    color: #dddddd;
+  }
+
+  pre code {
+    color: #bbbbbb;
+  }
+  background: #222;
 }
 </style>
