@@ -1,11 +1,13 @@
 <template>
   <div class="nav">
     <router-link class="nav__item" to="/blogs">Blogs</router-link>
+    <!-- <span @click="toggleMode"><img src="../../assets/lightbulb&#45;white.svg"></span> -->
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+};
 </script>
 
 <style>

@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="dark">
+    <ModeToggle />
     <div class="app__container">
       <Nav />
       <router-view />
@@ -9,11 +10,13 @@
 
 <script>
 import Nav from "./components/nav/Nav.vue";
+import ModeToggle from "./components/darkmode/ModeToggle.vue";
 
 export default {
   name: "App",
   components: {
-    Nav
+    Nav,
+    ModeToggle
   }
 };
 </script>
