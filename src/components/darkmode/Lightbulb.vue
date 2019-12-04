@@ -45,7 +45,7 @@ export default {
           scaleX: 1,
           scaleY: 1,
           duration: 0.5,
-          ease: "Power3.easeIn"
+          ease: "Power4.easeIn"
         });
       } else {
         return timeline.to(el, {
