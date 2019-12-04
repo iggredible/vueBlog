@@ -1,18 +1,16 @@
 <template>
-  <div @click="toggleMode" class="lightbulb">
+  <div class="lightbulb">
     <img src="../../assets/bulb_white_down.svg" />
     <span class="lightbulb__dark"></span>
 
     <!-- overlays -->
-    <div class="cd-overlay-nav">
+    <div class="overlay-light">
       <span></span>
     </div>
-    <!-- cd-overlay-nav -->
 
-    <div class="cd-overlay-content">
+    <div class="overlay-dark">
       <span></span>
     </div>
-    <!-- cd-overlay-content -->
     <!-- end overlay -->
   </div>
 </template>
@@ -29,75 +27,58 @@ export default {
     };
   },
   methods: {
-    toggleMode() {}
+    overlayInit(gsap, el, diameter) {
+      return gsap.to(el, 0, {
+        height: diameter + "px",
+        width: diameter + "px",
+        top: -(diameter / 2) + "px",
+        left: -(diameter / 2) + "px",
+        scaleX: 0,
+        scaleY: 0,
+        translateZ: 0
+      });
+    },
+    overlayExpander(timeline, el, type) {
+      if (type === "EXPAND") {
+        return timeline.to(el, {
+          translateZ: 0,
+          scaleX: 1,
+          scaleY: 1,
+          duration: 0.5,
+          ease: "Power3.easeIn"
+        });
+      } else {
+        return timeline.to(el, {
+          translateZ: 0,
+          scaleX: 0,
+          scaleY: 0,
+          duration: 0,
+          ease: "Linear.easeNone"
+        });
+      }
+    }
   },
   mounted() {
-    const bulb = $(".lightbulb");
-    const overlayNav = $(".cd-overlay-nav").children("span");
-    const overlayContent = $(".cd-overlay-content").children("span");
-
     const appBody = $("#app");
+    const bulb = $(".lightbulb");
+    const overlayLight = $(".overlay-light").children("span");
+    const overlayDark = $(".overlay-dark").children("span");
 
-    gsap.to(overlayNav, 0, {
-      height: this.diameter + "px",
-      width: this.diameter + "px",
-      top: -(this.diameter / 2) + "px",
-      left: -(this.diameter / 2) + "px",
-      scaleX: 0,
-      scaleY: 0,
-      translateZ: 0
-    });
+    this.overlayInit(gsap, overlayLight, this.diameter);
+    this.overlayInit(gsap, overlayDark, this.diameter);
 
-    gsap.to(overlayContent, 0, {
-      height: this.diameter + "px",
-      width: this.diameter + "px",
-      top: -(this.diameter / 2) + "px",
-      left: -(this.diameter / 2) + "px",
-      scaleX: 0,
-      scaleY: 0,
-      translateZ: 0
-    });
-
-    bulb.on("click", function() {
+    bulb.on("click", () => {
       const tl = gsap.timeline();
       if (!bulb.hasClass("close-nav")) {
         bulb.addClass("close-nav");
-        tl.to(overlayNav, {
-          translateZ: 0,
-          scaleX: 1,
-          scaleY: 1,
-          duration: 0.5,
-          ease: "Power3.easeIn"
-        });
-        tl.to(overlayNav, {
-          translateZ: 0,
-          scaleX: 0,
-          scaleY: 0,
-          duration: 0
-        });
-        tl.add(() => {
-          appBody.toggleClass("dark");
-        });
+        this.overlayExpander(tl, overlayLight, "EXPAND");
+        this.overlayExpander(tl, overlayLight, "NOT_EXPAND");
       } else {
         bulb.removeClass("close-nav");
-        // overlayContent
-        tl.to(overlayContent, {
-          translateZ: 0,
-          scaleX: 1,
-          scaleY: 1,
-          duration: 0.5,
-          ease: "Power3.easeIn"
-        });
-        tl.to(overlayContent, {
-          translateZ: 0,
-          scaleX: 0,
-          scaleY: 0,
-          duration: 0
-        });
-        tl.add(() => {
-          appBody.toggleClass("dark");
-        });
+        this.overlayExpander(tl, overlayDark, "EXPAND");
+        this.overlayExpander(tl, overlayDark, "NOT_EXPAND");
       }
+      tl.add(() => appBody.toggleClass("dark"));
     });
   },
   created() {
@@ -112,8 +93,8 @@ export default {
 /* I think this is the important ones below */
 
 .lightbulb,
-.cd-overlay-nav,
-.cd-overlay-content {
+.overlay-light,
+.overlay-dark {
   /* containers of the 2 main rounded backgrounds - these containers are used to position the rounded bgs behind the menu icon */
   position: fixed;
   top: 18px;
@@ -127,8 +108,8 @@ export default {
   transform: translateX(-20px) translateY(20px);
 }
 /* overlay-nav span. Recall inside layerInit, it is set to have height, width, top, left */
-.cd-overlay-nav span,
-.cd-overlay-content span {
+.overlay-light span,
+.overlay-dark span {
   display: inline-block;
   position: absolute;
   border-radius: 50%;
@@ -153,15 +134,15 @@ export default {
   transform: scale(0);
 }
 
-.cd-overlay-nav {
+.overlay-light {
   /* main rounded colored bg 1 */
   z-index: 2;
 }
-.cd-overlay-nav span {
+.overlay-light span {
   background-color: #091d23;
 }
 
-.cd-overlay-content {
+.overlay-dark {
   /* main rounded colored bg 2 */
   z-index: 4;
 }
@@ -172,10 +153,10 @@ export default {
 }
 
 /* dark cool gray-ish bg color */
-.cd-overlay-nav span {
+.overlay-light span {
   background-color: #fff;
 }
-.cd-overlay-content span {
+.overlay-dark span {
   background-color: #222; /* the EXPANDING orange (clicked after it was dark) */
 }
 </style>
