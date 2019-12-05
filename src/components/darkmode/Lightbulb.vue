@@ -119,7 +119,7 @@ export default {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 9px 7px 30px -6px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 4px 18px -4px #222;
   }
   &__light {
     height: 24px;
