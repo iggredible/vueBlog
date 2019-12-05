@@ -4,12 +4,12 @@
       <img
         v-if="mode === 'DARK'"
         class="lightbulb__light"
-        src="../../assets/bulb_white_down.svg"
+        src="../../assets/images/bulb_light.svg"
       />
       <img
         v-if="mode === 'LIGHT'"
         class="lightbulb__no-light"
-        src="../../assets/bulb_no_light.svg"
+        src="../../assets/images/bulb_no_light.svg"
       />
     </span>
 
@@ -82,13 +82,13 @@ export default {
       const tl = gsap.timeline();
       if (!bulb.hasClass("dark-button")) {
         bulb.addClass("dark-button");
-        this.overlayExpander(tl, overlayLight, "EXPAND");
-        this.overlayExpander(tl, overlayLight, "NOT_EXPAND");
+        this.overlayExpander(tl, overlayDark, "EXPAND");
+        this.overlayExpander(tl, overlayDark, "NOT_EXPAND");
         this.mode = LIGHT;
       } else {
         bulb.removeClass("dark-button");
-        this.overlayExpander(tl, overlayDark, "EXPAND");
-        this.overlayExpander(tl, overlayDark, "NOT_EXPAND");
+        this.overlayExpander(tl, overlayLight, "EXPAND");
+        this.overlayExpander(tl, overlayLight, "NOT_EXPAND");
         this.mode = DARK;
       }
       tl.add(() => appBody.toggleClass("dark"));
@@ -103,6 +103,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/styles/colors.scss";
 /* I think this is the important ones below */
 
 .lightbulb {
@@ -110,16 +111,19 @@ export default {
     height: 44px;
     width: 44px;
     z-index: 5;
-    background: #ffffff;
+    background: $lm-bg-button;
     border-radius: 50%;
     position: fixed;
     top: 18px;
-    right: 5%;
+    left: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 4px 4px 18px -4px #222;
+    transition: box-shadow 0.3s ease-in;
+  }
+  &__button:hover {
+    box-shadow: 4px 4px 15px -7px $lm-shadow-button;
   }
   &__light {
     height: 24px;
@@ -130,16 +134,21 @@ export default {
     height: 24px;
     width: 24px;
   }
-}
-.lightbulb__button.dark-button {
-  background: #222222;
+  &__button.dark-button {
+    background: $dm-bg-button;
+    transition: box-shadow 0.3s ease-in;
+  }
+  &__button.dark-button:hover {
+    box-shadow: 4px 4px 15px -7px $dm-shadow-button;
+  }
 }
 .overlay-light,
 .overlay-dark {
   /* containers of the 2 main rounded backgrounds - these containers are used to position the rounded bgs behind the menu icon */
   position: fixed;
   top: 18px;
-  right: 5%; /* makes it start 5% from right */
+  left: 8%; /* makes it start 5% from right */
+  position: 8%;
   height: 4px;
   width: 4px;
   -webkit-transform: translateX(-20px) translateY(20px);
@@ -175,19 +184,6 @@ export default {
   transform: scale(0);
 }
 
-.overlay-light {
-  /* main rounded colored bg 1 */
-  z-index: 2;
-}
-.overlay-light span {
-  background-color: #091d23;
-}
-
-.overlay-dark {
-  /* main rounded colored bg 2 */
-  z-index: 4;
-}
-
 .cd-content .cd-intro {
   height: 200px;
   padding-top: 4.6em;
@@ -195,9 +191,9 @@ export default {
 
 /* dark cool gray-ish bg color */
 .overlay-light span {
-  background-color: #fff;
+  background-color: $lm-bg-page;
 }
 .overlay-dark span {
-  background-color: #222; /* the EXPANDING orange (clicked after it was dark) */
+  background-color: $dm-bg-page; /* the EXPANDING orange (clicked after it was dark) */
 }
 </style>

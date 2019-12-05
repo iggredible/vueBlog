@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="dark">
+  <div id="app" class="">
     <ModeToggle />
     <div class="app__container">
       <Nav />
@@ -22,6 +22,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/styles/colors.scss";
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -42,25 +44,25 @@ h3,
 h4,
 h5,
 h6 {
-  color: #2c3e50;
+  color: $lm-font-headers;
 }
 
 div,
 span,
 p {
-  color: #222222;
+  color: $lm-font-text;
 }
 
 a {
-  color: #0074d9;
+  color: $lm-font-link;
 }
 pre code {
-  color: #444;
+  color: $lm-font-precode;
 }
 
 #app.dark {
   a {
-    color: #82ccdd;
+    color: $dm-font-link;
   }
   h1,
   h2,
@@ -68,18 +70,18 @@ pre code {
   h4,
   h5,
   h6 {
-    color: #eeeeee;
+    color: $dm-font-headers;
   }
 
   div,
   span,
   p {
-    color: #dddddd;
+    color: $dm-font-text;
   }
 
   pre code {
-    color: #bbbbbb;
+    color: $dm-font-precode;
   }
-  background: #222;
+  background: $dm-bg-page;
 }
 </style>
