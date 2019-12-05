@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     overlayInit(gsap, el, diameter) {
-      return gsap.to(el, 0, {
+      return gsap.set(el, {
         height: diameter + "px",
         width: diameter + "px",
         top: -(diameter / 2) + "px",
@@ -61,12 +61,10 @@ export default {
           ease: "Power4.easeIn"
         });
       } else {
-        return timeline.to(el, {
+        return timeline.set(el, {
           translateZ: 0,
           scaleX: 0,
-          scaleY: 0,
-          duration: 0,
-          ease: "Linear.easeNone"
+          scaleY: 0
         });
       }
     }
