@@ -11,6 +11,8 @@
         class="lightbulb__no-light"
         src="../../assets/images/bulb_no_light.svg"
       />
+
+      <!-- overlays -->
       <div class="overlay-light">
         <span></span>
       </div>
@@ -18,10 +20,9 @@
       <div class="overlay-dark">
         <span></span>
       </div>
-    </span>
+      <!-- end overlay -->
 
-    <!-- overlays -->
-    <!-- end overlay -->
+    </span>
   </div>
 </template>
 
@@ -45,10 +46,12 @@ export default {
         height: diameter + "px",
         width: diameter + "px",
         top: -(diameter / 2) + "px",
-        left: -(diameter / 2) + "px",
+        right: -(diameter / 2) + "px",
         scaleX: 0,
         scaleY: 0,
-        translateZ: 0
+        translateZ: 0,
+        x: "-50%",
+        y: "-50%"
       });
     },
     overlayExpander(timeline, el, type) {
@@ -57,7 +60,7 @@ export default {
           translateZ: 0,
           scaleX: 1,
           scaleY: 1,
-          duration: 4.5,
+          duration: 0.45,
           ease: "Power4.easeIn"
         });
       } else {
@@ -104,7 +107,6 @@ export default {
 
 <style lang="scss">
 @import "@/assets/styles/colors.scss";
-/* I think this is the important ones below */
 
 .lightbulb {
   &__button {
@@ -114,8 +116,8 @@ export default {
     background: $lm-bg-button;
     border-radius: 50%;
     position: fixed;
-    top: 18px;
-    left: 5%;
+    top: 16px;
+    right: 1%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,11 +130,13 @@ export default {
   &__light {
     height: 24px;
     width: 24px;
+    z-index: 9;
   }
 
   &__no-light {
     height: 24px;
     width: 24px;
+    z-index: 8;
   }
   &__button.dark-button {
     background: $dm-bg-button;
@@ -144,33 +148,25 @@ export default {
 }
 .overlay-light,
 .overlay-dark {
-  /* containers of the 2 main rounded backgrounds - these containers are used to position the rounded bgs behind the menu icon */
-  /* position: fixed; */
   position: absolute;
-  /* top: 18px; */
   top: 50%;
-  left: 50%; /* makes it start 5% from right */
+  right: 50%;
   height: 1px;
   width: 1px;
-  -webkit-transform: translateX(50%) translateY(50%);
-  -moz-transform: translateX(50%) translateY(50%);
-  -ms-transform: translateX(50%) translateY(50%);
-  -o-transform: translateX(50%) translateY(50%);
-  transform: translateX(50%) translateY(50%);
 }
-/* overlay-nav span. Recall inside layerInit, it is set to have height, width, top, left */
+
 .overlay-light span,
 .overlay-dark span {
   display: inline-block;
   position: absolute;
   border-radius: 50%;
+  z-index: 2;
 }
 
-/* dark cool gray-ish bg color */
 .overlay-light span {
   background-color: $lm-bg-page;
 }
 .overlay-dark span {
-  background-color: $dm-bg-page; /* the EXPANDING orange (clicked after it was dark) */
+  background-color: $dm-bg-page;
 }
 </style>
