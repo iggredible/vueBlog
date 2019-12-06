@@ -4,9 +4,9 @@
     <title>Untitled</title>
     <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="bulb_white_down" transform="translate(4.000000, 1.000000)" fill="#EEEEEE">
+        <g id="bulb_white_down" transform="translate(4.000000, 1.000000)" fill="#333333">
             <path d="M11,34 L23,34 C23.5522847,34 24,34.4477153 24,35 L24,37 C24,37.5522847 23.5522847,38 23,38 L11,38 C10.4477153,38 10,37.5522847 10,37 L10,35 C10,34.4477153 10.4477153,34 11,34 Z M17,0 C9.27,0 3,6.27 3,14 C3,18.76 5.38,22.95 9,25.48 L9,30 C9,31.1 9.9,32 11,32 L23,32 C24.1,32 25,31.1 25,30 L25,25.48 C28.62,22.95 31,18.76 31,14 C31,6.27 24.73,0 17,0 Z M22.71,22.2 L21,23.39 L21,28 L13,28 L13,23.4 L11.29,22.21 C8.6,20.33 7,17.27 7,14.01 C7,8.5 11.49,4.01 17,4.01 C22.51,4.01 27,8.5 27,14.01 C27,17.26 25.4,20.32 22.71,22.2 Z" id="Shape" fill-rule="nonzero" transform="translate(17.000000, 19.000000) rotate(-180.000000) translate(-17.000000, -19.000000) "></path>
-            <path d="M0,36 C22,14 33,3 33,3" id="Line" stroke="#EEEEEE" stroke-width="5" stroke-linecap="square"></path>
+            <path d="M0,36 C22,14 33,3 33,3" id="Line" stroke="#333333" stroke-width="5" stroke-linecap="square"></path>
         </g>
     </g>
 </svg>

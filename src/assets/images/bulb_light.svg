@@ -4,7 +4,7 @@
     <title>Untitled 2</title>
     <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="ic_lightbulb_outline_48px" fill="#333333" fill-rule="nonzero">
+        <g id="ic_lightbulb_outline_48px" fill="#eeeeee" fill-rule="nonzero">
             <path d="M8,34 L20,34 C20.5522847,34 21,34.4477153 21,35 L21,37 C21,37.5522847 20.5522847,38 20,38 L8,38 C7.44771525,38 7,37.5522847 7,37 L7,35 C7,34.4477153 7.44771525,34 8,34 Z M14,0 C6.27,0 0,6.27 0,14 C0,18.76 2.38,22.95 6,25.48 L6,30 C6,31.1 6.9,32 8,32 L20,32 C21.1,32 22,31.1 22,30 L22,25.48 C25.62,22.95 28,18.76 28,14 C28,6.27 21.73,0 14,0 Z M19.71,22.2 L18,23.39 L18,28 L10,28 L10,23.4 L8.29,22.21 C5.6,20.33 4,17.27 4,14.01 C4,8.5 8.49,4.01 14,4.01 C19.51,4.01 24,8.5 24,14.01 C24,17.26 22.4,20.32 19.71,22.2 Z" id="Shape" transform="translate(14.000000, 19.000000) rotate(-180.000000) translate(-14.000000, -19.000000) "></path>
         </g>
     </g>

@@ -1,15 +1,15 @@
 <template>
   <div class="lightbulb">
-    <span class="lightbulb__button">
+    <div class="lightbulb__button">
       <img
         v-if="mode === 'DARK'"
         class="lightbulb__light"
-        src="../../assets/images/bulb_light.svg"
+        src="../../assets/images/bulb_no_light.svg"
       />
       <img
         v-if="mode === 'LIGHT'"
         class="lightbulb__no-light"
-        src="../../assets/images/bulb_no_light.svg"
+        src="../../assets/images/bulb_light.svg"
       />
 
       <!-- overlays -->
@@ -21,8 +21,7 @@
         <span></span>
       </div>
       <!-- end overlay -->
-
-    </span>
+    </div>
   </div>
 </template>
 
@@ -117,7 +116,7 @@ export default {
     border-radius: 50%;
     position: fixed;
     top: 16px;
-    right: 1%;
+    right: 2.4%;
     display: flex;
     justify-content: center;
     align-items: center;
