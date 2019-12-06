@@ -11,16 +11,16 @@
         class="lightbulb__no-light"
         src="../../assets/images/bulb_no_light.svg"
       />
+      <div class="overlay-light">
+        <span></span>
+      </div>
+
+      <div class="overlay-dark">
+        <span></span>
+      </div>
     </span>
 
     <!-- overlays -->
-    <div class="overlay-light">
-      <span></span>
-    </div>
-
-    <div class="overlay-dark">
-      <span></span>
-    </div>
     <!-- end overlay -->
   </div>
 </template>
@@ -57,7 +57,7 @@ export default {
           translateZ: 0,
           scaleX: 1,
           scaleY: 1,
-          duration: 0.5,
+          duration: 4.5,
           ease: "Power4.easeIn"
         });
       } else {
@@ -145,17 +145,18 @@ export default {
 .overlay-light,
 .overlay-dark {
   /* containers of the 2 main rounded backgrounds - these containers are used to position the rounded bgs behind the menu icon */
-  position: fixed;
-  top: 18px;
-  left: 8%; /* makes it start 5% from right */
-  position: 8%;
-  height: 4px;
-  width: 4px;
-  -webkit-transform: translateX(-20px) translateY(20px);
-  -moz-transform: translateX(-20px) translateY(20px);
-  -ms-transform: translateX(-20px) translateY(20px);
-  -o-transform: translateX(-20px) translateY(20px);
-  transform: translateX(-20px) translateY(20px);
+  /* position: fixed; */
+  position: absolute;
+  /* top: 18px; */
+  top: 50%;
+  left: 50%; /* makes it start 5% from right */
+  height: 1px;
+  width: 1px;
+  -webkit-transform: translateX(50%) translateY(50%);
+  -moz-transform: translateX(50%) translateY(50%);
+  -ms-transform: translateX(50%) translateY(50%);
+  -o-transform: translateX(50%) translateY(50%);
+  transform: translateX(50%) translateY(50%);
 }
 /* overlay-nav span. Recall inside layerInit, it is set to have height, width, top, left */
 .overlay-light span,
@@ -163,30 +164,6 @@ export default {
   display: inline-block;
   position: absolute;
   border-radius: 50%;
-  /* Force Hardware Acceleration in WebKit */
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  will-change: transform;
-  -webkit-transform-origin: 50% 50%;
-  -moz-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0);
-}
-
-.cd-content .cd-intro {
-  height: 200px;
-  padding-top: 4.6em;
 }
 
 /* dark cool gray-ish bg color */
