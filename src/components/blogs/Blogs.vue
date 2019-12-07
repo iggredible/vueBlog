@@ -26,16 +26,29 @@
 </template>
 
 <script>
+import fuzzysort from "fuzzysort";
 export default {
   data() {
     return {
-      devJson: {},
-      devJsonArr: []
+      devJson: {}
     };
   },
   created() {
     this.devJson = this.$store.state.devJson;
-    this.devJsonArr = this.$store.getters.devJsonArr;
+    this.$store.dispatch("createDevJsonArr");
+  },
+  computed: {
+    devJsonArr() {
+      const search = this.$store.state.search;
+      const devJsonArr = this.$store.state.devJsonArr;
+      const result = fuzzysort.go(search, devJsonArr);
+      const filteredDevArr = result.map(el => el.target);
+      if (search === "") {
+        return devJsonArr;
+      } else {
+        return filteredDevArr;
+      }
+    }
   },
   methods: {
     readableDate(dateStr) {

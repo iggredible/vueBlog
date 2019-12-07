@@ -13,6 +13,7 @@
     "core-js": "^3.3.2",
     "dotenv": "8.2.0",
     "front-matter": "3.0.2",
+    "fuzzysort": "1.1.4",
     "gsap": "3.0.1",
     "jquery": "3.4.1",
     "markdown-it": "10.0.0",

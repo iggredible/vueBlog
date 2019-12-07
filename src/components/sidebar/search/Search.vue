@@ -1,7 +1,11 @@
 <template>
   <div>
-    <input type="text" placeholder="Search article" v-model="search" />
-    {{ filteredArr }}
+    <input
+      @input="changeHandle"
+      type="text"
+      placeholder="Search article"
+      v-model="search"
+    />
   </div>
 </template>
 
@@ -9,21 +13,14 @@
 export default {
   data() {
     return {
-      search: "",
-      devArr: []
+      search: ""
     };
   },
-  created() {
-    this.devArr = this.$store.getters.devJsonArr;
-  },
-  computed: {
-    filteredArr() {
-      console.log("HEY FILTERED ARR");
-      const filteredArr = this.devArr.filter(title => {
-        return title.toLowerCase().includes(this.search.toLowerCase());
-      });
-      console.log(filteredArr);
-      return filteredArr;
+  mounted() {},
+  methods: {
+    changeHandle() {
+      const search = this.search.replace(/\s/g, "");
+      this.$store.dispatch("setSearchData", search);
     }
   }
 };

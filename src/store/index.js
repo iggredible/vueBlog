@@ -1,15 +1,22 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import devJson from "../data/dev/DevTo.json";
+import fuzzysort from "fuzzysort";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    devJson: devJson
+    devJson: devJson,
+    devJsonArr: [],
+    search: "",
+    filteredDevJsonArr: []
   },
-  getters: {
-    devJsonArr(state) {
+  mutations: {
+    SET_SEARCH_DATA(state, search) {
+      state.search = search;
+    },
+    CREATE_DEV_JSON_ARR(state) {
       const devJson = state.devJson;
       const devJsonKeys = Object.keys(devJson);
 
@@ -27,7 +34,15 @@ export default new Vuex.Store({
         return aa < bb ? -1 : aa > bb ? 1 : 0;
       };
       const sortedKeys = devJsonKeys.sort(dateSortFunc).reverse();
-      return sortedKeys;
+      state.devJsonArr = sortedKeys;
+    }
+  },
+  actions: {
+    setSearchData({ commit }, search) {
+      commit("SET_SEARCH_DATA", search);
+    },
+    createDevJsonArr({ commit }) {
+      commit("CREATE_DEV_JSON_ARR");
     }
   }
 });
