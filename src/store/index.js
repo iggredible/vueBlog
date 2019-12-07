@@ -10,25 +10,23 @@ export default new Vuex.Store({
   },
   getters: {
     devJsonArr(state) {
-      const devJsonCopy = state.devJson;
-      const devJsonKeys = Object.keys(state.devJson);
+      const devJson = state.devJson;
+      const devJsonKeys = Object.keys(devJson);
+
       devJsonKeys.forEach(devJsonKey => {
-        const devJsonCopyKeyPublishedAt = devJsonCopy[devJsonKey].published_at;
-        devJsonCopy[
-          devJsonKey
-        ].published_at = devJsonCopyKeyPublishedAt.replace(/T.*/, "");
+        const devJsonKeyPublishedAt = devJson[devJsonKey].published_at;
+        devJson[devJsonKey].published_at = devJsonKeyPublishedAt.replace(
+          /T.*/,
+          ""
+        );
       });
 
       const dateSortFunc = (a, b) => {
-        const aa = devJsonCopy[a].published_at.split("-").join(),
-          bb = devJsonCopy[b].published_at.split("-").join();
+        const aa = devJson[a].published_at.split("-").join(),
+          bb = devJson[b].published_at.split("-").join();
         return aa < bb ? -1 : aa > bb ? 1 : 0;
       };
-      console.log("RAW:");
-      console.log(Object.keys(state.devJson));
       const sortedKeys = devJsonKeys.sort(dateSortFunc).reverse();
-      console.log("from store:");
-      console.log(sortedKeys);
       return sortedKeys;
     }
   }

@@ -37,31 +37,6 @@ export default {
     this.devJson = this.$store.state.devJson;
     this.devJsonArr = this.$store.getters.devJsonArr;
   },
-  computed: {
-    devJsonKeys() {
-      return Object.keys(this.devJson);
-    },
-    sortedByDateDevJsonKeys() {
-      const devJsonCopy = { ...this.devJson };
-      const devJsonKeys = this.devJsonArr;
-      devJsonKeys.forEach(devJsonKey => {
-        const devJsonCopyKeyPublishedAt = devJsonCopy[devJsonKey].published_at;
-        devJsonCopy[
-          devJsonKey
-        ].published_at = devJsonCopyKeyPublishedAt.replace(/T.*/, "");
-      });
-
-      const dateSortFunc = (a, b) => {
-        const aa = devJsonCopy[a].published_at.split("-").join(),
-          bb = devJsonCopy[b].published_at.split("-").join();
-        return aa < bb ? -1 : aa > bb ? 1 : 0;
-      };
-      const sortedKeys = devJsonKeys.sort(dateSortFunc).reverse();
-      console.log("FROM COMPONENT");
-      console.log(sortedKeys);
-      return sortedKeys;
-    }
-  },
   methods: {
     readableDate(dateStr) {
       return new Date(Date.parse(dateStr)).toDateString();
