@@ -3,7 +3,7 @@
     <ul class="blogs__list">
       <li
         class="blogs__feed"
-        v-for="article in sortedByDateDevJsonKeys"
+        v-for="article in devJsonArr"
         v-bind:key="article"
       >
         <div class="blogs__feed-meta-container">
@@ -29,12 +29,13 @@
 export default {
   data() {
     return {
-      devJson: {}
+      devJson: {},
+      devJsonArr: []
     };
   },
   created() {
-    this.$store.dispatch("getDevJsonData");
     this.devJson = this.$store.state.devJson;
+    this.devJsonArr = this.$store.getters.devJsonArr;
   },
   computed: {
     devJsonKeys() {
@@ -42,7 +43,7 @@ export default {
     },
     sortedByDateDevJsonKeys() {
       const devJsonCopy = { ...this.devJson };
-      const devJsonKeys = this.devJsonKeys;
+      const devJsonKeys = this.devJsonArr;
       devJsonKeys.forEach(devJsonKey => {
         const devJsonCopyKeyPublishedAt = devJsonCopy[devJsonKey].published_at;
         devJsonCopy[
@@ -56,6 +57,8 @@ export default {
         return aa < bb ? -1 : aa > bb ? 1 : 0;
       };
       const sortedKeys = devJsonKeys.sort(dateSortFunc).reverse();
+      console.log("FROM COMPONENT");
+      console.log(sortedKeys);
       return sortedKeys;
     }
   },
