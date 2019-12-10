@@ -115,8 +115,8 @@ export default {
     background: $lm-bg-button;
     border-radius: 50%;
     position: fixed;
-    top: 16px;
-    right: 2.4%;
+    top: 66px;
+    right: 1.6%;
     display: flex;
     justify-content: center;
     align-items: center;

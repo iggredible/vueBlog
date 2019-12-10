@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import devJson from "../data/dev/DevTo.json";
-import fuzzysort from "fuzzysort";
 
 Vue.use(Vuex);
 
@@ -9,8 +8,7 @@ export default new Vuex.Store({
   state: {
     devJson: devJson,
     devJsonArr: [],
-    search: "",
-    filteredDevJsonArr: []
+    search: ""
   },
   mutations: {
     SET_SEARCH_DATA(state, search) {
