@@ -49,6 +49,7 @@ h6 {
 
 div,
 span,
+input,
 p {
   color: $lm-font-text;
 }
@@ -75,7 +76,7 @@ pre code {
 
   div,
   span,
-  p {
+  input p {
     color: $dm-font-text;
   }
 

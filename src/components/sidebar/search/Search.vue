@@ -6,18 +6,22 @@
         src="../../../assets/images/search.svg"
         @click="toggleIsSearching"
       />
+      <input
+        class="search__input"
+        maxlength="24"
+        v-show="isSearching"
+        @input="changeHandle"
+        type="text"
+        v-model="search"
+      />
     </div>
-    <input
-      v-if="isSearching"
-      @input="changeHandle"
-      type="text"
-      placeholder="Search article"
-      v-model="search"
-    />
   </div>
 </template>
 
 <script>
+import gsap from "gsap";
+import $ from "jquery";
+
 export default {
   data() {
     return {
@@ -31,9 +35,27 @@ export default {
       this.$store.dispatch("setSearchData", search);
     },
     toggleIsSearching() {
+      const searchInput = $(".search__input");
       this.isSearching = !this.isSearching;
       if (this.isSearching) {
-        // run animation here
+        // expands width
+        gsap.to(searchInput, {
+          width: 200,
+          paddingRight: 120,
+          paddingLeft: 30,
+          duration: 0.3,
+          right: 0,
+          ease: "Power4.easeIn"
+        });
+      } else {
+        console.log("CLOSING");
+        gsap.to(searchInput, {
+          width: 0,
+          paddingRight: 0,
+          paddingLeft: 0,
+          right: 13,
+          duration: 1
+        });
       }
     }
   }
@@ -64,10 +86,24 @@ export default {
     box-shadow: 4px 4px 15px -7px $lm-shadow-button;
   }
 
+  &__input {
+    width: 24px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 4px 4px 15px -7px $lm-shadow-button;
+    padding: 13px 0px 13px 0px;
+    /* padding: 13px 120px 13px 30px; */
+    position: absolute;
+    right: 13px;
+    font-size: 16px;
+  }
   &__magnifying-light {
     height: 21px;
     width: 21px;
     z-index: 9;
   }
+}
+input:focus {
+  outline: none;
 }
 </style>
