@@ -15,6 +15,7 @@
         v-model="search"
       />
     </div>
+    {{ mode }}
   </div>
 </template>
 
@@ -23,8 +24,20 @@ export default {
   data() {
     return {
       search: "",
-      isSearching: false
+      isSearching: false,
+      mode: ""
     };
+  },
+  created() {
+    const currentMode = this.$store.getters.getModeState;
+    this.mode = currentMode;
+    this.$store.watch(
+      (state) => state.mode,
+      (newVal, oldVal) => {
+        console.log(`old: ${oldVal}, new: ${newVal}`)
+        this.mode = newVal;
+      }
+    )
   },
   methods: {
     changeHandle() {
@@ -79,6 +92,15 @@ export default {
     height: 21px;
     width: 21px;
     z-index: 9;
+  }
+}
+.dark .search{
+  &__button {
+    background: $dm-bg-button;
+
+    svg {
+      fill: red;
+    }
   }
 }
 input:focus {

@@ -11,8 +11,10 @@ Vue.use(VueRouter);
 
 const router = new VueRouter(routes);
 
-new Vue({
+const app = new Vue({
   render: h => h(App),
   store,
   router
-}).$mount("#app");
+});
+
+app.$mount("#app");

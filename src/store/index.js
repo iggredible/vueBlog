@@ -3,14 +3,19 @@ import Vuex from "vuex";
 import devJson from "../data/dev/DevTo.json";
 
 Vue.use(Vuex);
+const defaultMode = "LIGHT";
 
 export default new Vuex.Store({
   state: {
     devJson: devJson,
     devJsonArr: [],
-    search: ""
+    search: "",
+    mode: defaultMode
   },
   mutations: {
+    SET_MODE(state, mode) {
+      state.mode = mode;
+    },
     SET_SEARCH_DATA(state, search) {
       state.search = search;
     },
@@ -41,6 +46,12 @@ export default new Vuex.Store({
     },
     createDevJsonArr({ commit }) {
       commit("CREATE_DEV_JSON_ARR");
+    },
+    setMode({ commit }, mode) {
+      commit("SET_MODE", mode);
     }
+  },
+  getters: {
+    getModeState: state => state.mode
   }
 });

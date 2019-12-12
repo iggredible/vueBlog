@@ -2,12 +2,12 @@
   <div class="lightbulb">
     <div class="lightbulb__button">
       <img
-        v-if="mode === 'DARK'"
+        v-if="mode === 'LIGHT'"
         class="lightbulb__light"
         src="../../../assets/images/bulb_no_light.svg"
       />
       <img
-        v-if="mode === 'LIGHT'"
+        v-if="mode === 'DARK'"
         class="lightbulb__no-light"
         src="../../../assets/images/bulb_light.svg"
       />
@@ -36,8 +36,11 @@ export default {
   data() {
     return {
       diameter: 0,
-      mode: DARK
+      mode: LIGHT
     };
+  },
+  beforeCreate() {
+    this.mode = this.$store.state.mode;
   },
   methods: {
     overlayInit(gsap, el, diameter) {
@@ -83,15 +86,19 @@ export default {
     bulb.on("click", () => {
       const tl = gsap.timeline();
       if (!bulb.hasClass("dark-button")) {
+        this.$store.dispatch("setMode", DARK);
+        console.log("DARK");
         bulb.addClass("dark-button");
         this.overlayExpander(tl, overlayDark, "EXPAND");
         this.overlayExpander(tl, overlayDark, "NOT_EXPAND");
-        this.mode = LIGHT;
+        this.mode = this.$store.state.mode;
       } else {
+        this.$store.dispatch("setMode", LIGHT);
+        console.log("LIGHT");
         bulb.removeClass("dark-button");
         this.overlayExpander(tl, overlayLight, "EXPAND");
         this.overlayExpander(tl, overlayLight, "NOT_EXPAND");
-        this.mode = DARK;
+        this.mode = this.$store.state.mode;
       }
       tl.add(() => appBody.toggleClass("dark"));
     });
