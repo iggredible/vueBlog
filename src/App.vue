@@ -76,7 +76,8 @@ pre code {
 
   div,
   span,
-  input p {
+  input,
+  p {
     color: $dm-font-text;
   }
 

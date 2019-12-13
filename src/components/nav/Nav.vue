@@ -1,25 +1,31 @@
 <template>
   <div class="nav">
-    <router-link class="nav__item" to="/blogs">Blogs</router-link>
-    <!-- <span @click="toggleMode"><img src="../../assets/lightbulb&#45;white.svg"></span> -->
+    <router-link class="nav__item" to="/">
+      <h2 class="nav__header">irian.to</h2>
+    </router-link>
   </div>
 </template>
 
 <script>
-export default {
-};
+export default {};
 </script>
 
-<style>
+<style lang="scss">
 .nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
-}
 
-.nav__item {
-  text-decoration: none;
-  margin: 0.5rem 2rem;
+  &__item {
+    text-decoration: none;
+    margin: 0.5rem 0;
+  }
+
+  &__header {
+    font-weight: 900;
+    font-size: 60px;
+    margin: 0;
+  }
 }
 </style>
