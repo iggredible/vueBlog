@@ -62,7 +62,7 @@ export default {
           translateZ: 0,
           scaleX: 1,
           scaleY: 1,
-          duration: 0.45,
+          duration: 0.22,
           ease: "Power4.easeIn"
         });
       } else {
@@ -87,14 +87,12 @@ export default {
       const tl = gsap.timeline();
       if (!bulb.hasClass("dark-button")) {
         this.$store.dispatch("setMode", DARK);
-        console.log("DARK");
         bulb.addClass("dark-button");
         this.overlayExpander(tl, overlayDark, "EXPAND");
         this.overlayExpander(tl, overlayDark, "NOT_EXPAND");
         this.mode = this.$store.state.mode;
       } else {
         this.$store.dispatch("setMode", LIGHT);
-        console.log("LIGHT");
         bulb.removeClass("dark-button");
         this.overlayExpander(tl, overlayLight, "EXPAND");
         this.overlayExpander(tl, overlayLight, "NOT_EXPAND");
@@ -122,7 +120,8 @@ export default {
     background: $lm-bg-button;
     border-radius: 50%;
     position: fixed;
-    top: 66px;
+    /* top: 66px; if search had been on*/
+    top: 12px;
     right: 1.6%;
     display: flex;
     justify-content: center;
@@ -166,7 +165,7 @@ export default {
   display: inline-block;
   position: absolute;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 4;
 }
 
 .overlay-light span {

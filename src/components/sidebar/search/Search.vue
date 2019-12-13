@@ -1,9 +1,16 @@
 <template>
   <div class="search">
-    <div class="search__button">
+    <div class="search__button" :class="{ dark: mode === 'DARK' }">
       <img
+        v-if="mode === 'LIGHT'"
         class="search__magnifying-light"
         src="../../../assets/images/search.svg"
+        @click="toggleIsSearching"
+      />
+      <img
+        v-if="mode === 'DARK'"
+        class="search__magnifying-dark"
+        src="../../../assets/images/search-dark.svg"
         @click="toggleIsSearching"
       />
       <input
@@ -32,12 +39,11 @@ export default {
     const currentMode = this.$store.getters.getModeState;
     this.mode = currentMode;
     this.$store.watch(
-      (state) => state.mode,
-      (newVal, oldVal) => {
-        console.log(`old: ${oldVal}, new: ${newVal}`)
+      state => state.mode,
+      newVal => {
         this.mode = newVal;
       }
-    )
+    );
   },
   methods: {
     changeHandle() {
@@ -55,6 +61,7 @@ export default {
 @import "@/assets/styles/colors.scss";
 
 .search {
+  z-index: 2;
   &__button {
     height: 44px;
     width: 44px;
@@ -69,41 +76,42 @@ export default {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: box-shadow 0.3s ease-in;
+    transition: all 0.3s ease-in;
   }
   &__button:hover {
     box-shadow: 4px 4px 15px -7px $lm-shadow-button;
   }
 
+  &__button.dark {
+    background: $dm-bg-button;
+    transition: all 0.2s ease-in 0.14s;
+  }
+  &__button.dark:hover {
+    box-shadow: 4px 4px 15px -7px $dm-shadow-button;
+  }
+
   &__input {
     width: 200px;
-    /* border-radius: 30px; */
     border: none;
     border-bottom: 3px solid $lm-bg-button-border;
-    /* box-shadow: 4px 4px 15px -7px $lm-shadow-button; */
     padding: 13px 15px 13px 15px;
-    /* padding: 13px 120px 13px 30px; */
     position: absolute;
     right: 50px;
     font-size: 16px;
     outline: none;
   }
-  &__magnifying-light {
+  &__magnifying-light,
+  &__magnifying-dark {
     height: 21px;
     width: 21px;
     z-index: 9;
   }
 }
-.dark .search{
-  &__button {
-    background: $dm-bg-button;
 
-    svg {
-      fill: red;
-    }
-  }
-}
 input:focus {
   outline: none;
+}
+.dark input[type="text"] {
+  background: $dm-bg-page;
 }
 </style>
