@@ -36,14 +36,10 @@ export default {
     margin: 0 auto;
     max-width: 645px;
 
-    /* iPad: 768px */
-    @media only screen and (max-width: 767px) {
-      max-width: 400px;
-    }
-
     /* small mobile (per bootstrap: 576px) */
     @media only screen and (max-width: 577px) {
-      max-width: 290px;
+      max-width: 600px;
+      margin-right: 40px; /* avoid overlap with bulb button */
     }
   }
 }
