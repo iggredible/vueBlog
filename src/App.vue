@@ -33,8 +33,18 @@ export default {
 .app {
   &__container {
     padding: 2rem 1rem;
-    max-width: 645px;
     margin: 0 auto;
+    max-width: 645px;
+
+    /* iPad: 768px */
+    @media only screen and (max-width: 767px) {
+      max-width: 400px;
+    }
+
+    /* small mobile (per bootstrap: 576px) */
+    @media only screen and (max-width: 577px) {
+      max-width: 290px;
+    }
   }
 }
 
@@ -45,6 +55,10 @@ h4,
 h5,
 h6 {
   color: $lm-font-headers;
+}
+
+ul {
+  padding-left: 24px;
 }
 
 div,
@@ -59,11 +73,23 @@ a {
 }
 pre code {
   color: $lm-font-precode;
+  padding: 0.5rem;
+}
+
+pre {
+  width: 100%;
+  background: $lm-code-bg;
+  padding: 2rem 0;
+  overflow: scroll;
+  border-radius: 6px;
 }
 
 #app.dark {
   a {
     color: $dm-font-link;
+    &:hover {
+      color: $dm-font-hover;
+    }
   }
   h1,
   h2,

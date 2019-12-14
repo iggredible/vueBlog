@@ -18,6 +18,9 @@
             :to="`/blog/${article}`"
           >
             {{ devJson[article].title }}
+            <p class="blogs__feed-description">
+              {{ devJson[article].description }}
+            </p>
           </router-link>
         </h2>
       </li>
@@ -35,6 +38,7 @@ export default {
   },
   created() {
     this.devJson = this.$store.state.devJson;
+    console.log(this.devJson);
     this.$store.dispatch("createDevJsonArr");
   },
   computed: {
@@ -59,6 +63,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/styles/colors.scss";
+
 .blogs {
   &__list {
     padding-left: 0;
@@ -70,11 +76,21 @@ export default {
   &__feed-title {
     line-height: 40px;
     margin-top: 0;
+    margin-bottom: 0;
+  }
+  &__feed-description {
+    margin-top: -8px;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 20px;
+    &:hover {
+      color: $lm-font-hover;
+    }
   }
   &__feed-link {
     text-decoration: none;
     &:hover {
-      text-decoration: underline;
+      color: $lm-font-headers;
     }
   }
   &__time {
