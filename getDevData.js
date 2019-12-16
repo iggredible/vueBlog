@@ -7,6 +7,7 @@ const axios = require("axios");
 const fs = require("fs");
 const targetDir = "./src/data/dev/";
 const URL = "https://dev.to/api/articles/me/published";
+// const URL = "helloyou";
 
 let data;
 
@@ -25,17 +26,24 @@ const options = {
   headers: { "api-key": process.env.DEV_KEY }
 };
 
-axios.get(URL, options).then(response => {
-  fs.mkdirSync(targetDir, { recursive: true });
-  data = response.data;
-  const normalizedDevData = JSON.stringify(
-    convertArrayToObject(data, "slug"),
-    null,
-    2
-  );
+axios
+  .get(URL, options)
+  .then(response => {
+    fs.mkdirSync(targetDir, { recursive: true });
+    data = response.data;
+    const normalizedDevData = JSON.stringify(
+      convertArrayToObject(data, "slug"),
+      null,
+      2
+    );
 
-  fs.writeFile(`${targetDir}DevTo.json`, normalizedDevData, err => {
-    if (err) throw err;
+    fs.writeFile(`${targetDir}DevTo.json`, normalizedDevData, err => {
+      if (err) throw err;
+      return;
+    });
+    console.log("***dev.to data successfully fetched***");
     return;
+  })
+  .catch(error => {
+    console.log("ERROR: ", error);
   });
-});
