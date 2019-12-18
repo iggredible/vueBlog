@@ -7,7 +7,6 @@ const axios = require("axios");
 const fs = require("fs");
 const targetDir = "./src/data/dev/";
 const URL = "https://dev.to/api/articles/me/published";
-// const URL = "helloyou";
 
 let data;
 
