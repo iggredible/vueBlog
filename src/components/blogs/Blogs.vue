@@ -38,7 +38,6 @@ export default {
   },
   created() {
     this.devJson = this.$store.state.devJson;
-    console.log(this.devJson);
     this.$store.dispatch("createDevJsonArr");
   },
   computed: {
