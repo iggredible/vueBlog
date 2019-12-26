@@ -69,13 +69,12 @@ a {
 }
 pre code {
   color: $lm-font-precode;
-  padding: 0.5rem;
 }
 
 pre {
   width: 100%;
   background: $lm-code-bg;
-  padding: 2rem 0;
+  padding: 2rem 0.5rem;
   overflow: scroll;
   border-radius: 6px;
 }

@@ -1,14 +1,10 @@
 <template>
   <div class="blogs__container">
     <ul class="blogs__list">
-      <li
-        class="blogs__feed"
-        v-for="article in devJsonArr"
-        v-bind:key="article"
-      >
+      <li class="blogs__feed" v-for="article in blogArr" v-bind:key="article">
         <div class="blogs__feed-meta-container">
           <time class="blogs__time" v-if="devJson">{{
-            readableDate(devJson[article].published_at)
+            readableDate(extractDateStrFromDevData(devJson[article]))
           }}</time>
         </div>
         <h2 class="blogs__feed-title">
@@ -51,11 +47,24 @@ export default {
       } else {
         return filteredDevArr;
       }
+    },
+    blogArr() {
+      // return [1, 2, 3];
+      return this.devJsonArr;
     }
   },
   methods: {
+    extractDateStrFromDevData(devData) {
+      if (devData) {
+        return devData.published_at;
+      }
+      return false;
+    },
     readableDate(dateStr) {
-      return new Date(Date.parse(dateStr)).toDateString();
+      if (dateStr) {
+        return new Date(Date.parse(dateStr)).toDateString();
+      }
+      return "";
     }
   }
 };
