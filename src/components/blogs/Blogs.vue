@@ -1,21 +1,25 @@
 <template>
   <div class="blogs__container">
     <ul class="blogs__list">
-      <li class="blogs__feed" v-for="article in blogArr" v-bind:key="article">
+      <li
+        class="blogs__feed"
+        v-for="article in blogsArrFilterable"
+        v-bind:key="article"
+      >
         <div class="blogs__feed-meta-container">
-          <time class="blogs__time" v-if="devJson">{{
-            readableDate(extractDateStrFromDevData(devJson[article]))
+          <time class="blogs__time" v-if="blogsData">{{
+            readableDate(extractDateStrFromDevData(blogsData[article]))
           }}</time>
         </div>
         <h2 class="blogs__feed-title">
           <router-link
-            v-if="devJson"
+            v-if="blogsData"
             class="blogs__feed-link"
             :to="`/blog/${article}`"
           >
-            {{ devJson[article].title }}
+            {{ blogsData[article].title }}
             <p class="blogs__feed-description">
-              {{ devJson[article].description }}
+              {{ blogsData[article].description }}
             </p>
           </router-link>
         </h2>
@@ -27,30 +31,23 @@
 <script>
 import fuzzysort from "fuzzysort";
 export default {
-  data() {
-    return {
-      devJson: {}
-    };
-  },
-  created() {
-    this.devJson = this.$store.state.devJson;
-    this.$store.dispatch("createDevJsonArr");
+  beforeCreate() {
+    this.$store.dispatch("setupBlogData");
   },
   computed: {
-    devJsonArr() {
+    blogsData() {
+      return this.$store.state.blogsJson;
+    },
+    blogsArrFilterable() {
       const search = this.$store.state.search;
-      const devJsonArr = this.$store.state.devJsonArr;
-      const result = fuzzysort.go(search, devJsonArr);
+      const blogsArr = this.$store.state.blogsArr;
+      const result = fuzzysort.go(search, this.blogsArr);
       const filteredDevArr = result.map(el => el.target);
       if (search === "") {
-        return devJsonArr;
+        return blogsArr;
       } else {
         return filteredDevArr;
       }
-    },
-    blogArr() {
-      // return [1, 2, 3];
-      return this.devJsonArr;
     }
   },
   methods: {

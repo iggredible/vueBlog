@@ -25,6 +25,7 @@ export default {
       const markdownData = fm(
         this.devJson[this.$route.params.slug].body_markdown
       );
+
       return `
         <h1 class="blog__header">${markdownData.attributes.title}</h1>
         ${md.render(markdownData.body)}
