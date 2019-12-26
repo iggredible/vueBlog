@@ -24,10 +24,11 @@ export default new Vuex.Store({
       state.search = search;
     },
     SETUP_BLOG_DATA(state) {
+      console.log("CALLED");
       const devJson = state.devJson;
       const originalJson = state.originalJson;
 
-      const normalizeDev = (devJson) => {
+      const normalizeDev = devJson => {
         const resultObj = {};
         const devJsonKeys = Object.keys(devJson);
         devJsonKeys.forEach(key => {
@@ -35,18 +36,18 @@ export default new Vuex.Store({
             title: devJson[key].title,
             published_at: devJson[key].published_at,
             description: devJson[key].description,
-            body: devJson[key].body_markdown,
-            blog_type: 'DEV'
-          }
-        })
+            markdown_body: devJson[key].body_markdown,
+            blog_type: "DEV"
+          };
+        });
         /* somehow key 'id' is a duplicate of earliest dev.to data */
-        if(resultObj['id']){
-          delete resultObj['id']
+        if (resultObj["id"]) {
+          delete resultObj["id"];
         }
-        return resultObj
-      }
+        return resultObj;
+      };
 
-      const normalizeOriginal = (originalJson) => {
+      const normalizeOriginal = originalJson => {
         const resultObj = {};
         const originalJsonKeys = Object.keys(originalJson);
         originalJsonKeys.forEach(key => {
@@ -54,20 +55,20 @@ export default new Vuex.Store({
             title: originalJson[key].attributes.title,
             published_at: originalJson[key].attributes.published_at,
             description: originalJson[key].attributes.description,
-            body: originalJson[key].body,
-            blog_type: 'ORIGINAL'
-          }
-        })
-        return resultObj
-      }
+            markdown_body: originalJson[key].body,
+            blog_type: "ORIGINAL"
+          };
+        });
+        return resultObj;
+      };
       const normalizedDev = normalizeDev(devJson);
       const normalizedOriginal = normalizeOriginal(originalJson);
 
       const blogsMerger = (dev, original) => {
-        const resultObj = {...dev, ...original}
+        const resultObj = { ...dev, ...original };
         return resultObj;
-      }
-      const normalizedBlogs = blogsMerger(normalizedDev, normalizedOriginal)
+      };
+      const normalizedBlogs = blogsMerger(normalizedDev, normalizedOriginal);
       const normalizedBlogsKeys = Object.keys(normalizedBlogs);
 
       const dateSortFunc = (a, b) => {
@@ -79,6 +80,7 @@ export default new Vuex.Store({
       const sortedBlogsArr = normalizedBlogsKeys.sort(dateSortFunc).reverse();
 
       state.blogsJson = normalizedBlogs;
+      console.log("store blogsJson", normalizedBlogs);
       state.blogsArr = sortedBlogsArr;
     }
   },

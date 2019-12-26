@@ -1,6 +1,6 @@
 <template>
   <div class="blog__container">
-    <div v-html="devMarkdown"></div>
+    <div v-html="blogMarkdown"></div>
   </div>
 </template>
 
@@ -12,23 +12,18 @@ const md = new MarkdownIt();
 
 export default {
   name: "Blog",
-  data() {
-    return {
-      devJson: {}
-    };
-  },
-  created() {
-    this.devJson = this.$store.state.devJson;
+  beforeCreate() {
+    this.$store.dispatch("setupBlogData");
   },
   computed: {
-    devMarkdown: function() {
-      const markdownData = fm(
-        this.devJson[this.$route.params.slug].body_markdown
-      );
-
+    blogMarkdown: function() {
+      const blogsJson = this.$store.state.blogsJson;
+      const slug = this.$route.params.slug;
+      const title = blogsJson[slug].title;
+      const body = fm(blogsJson[slug].markdown_body).body;
       return `
-        <h1 class="blog__header">${markdownData.attributes.title}</h1>
-        ${md.render(markdownData.body)}
+        <h1 class="blog__header">${title}</h1>
+        ${md.render(body)}
       `;
     }
   }
