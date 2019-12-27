@@ -7,13 +7,13 @@
     </div>
 
     <div class="nav__links">
-      <a href="/blogs" class="nav__links-item">
+      <router-link class="nav__links-item" to="/blogs">
         Blogs
-      </a>
+      </router-link>
 
-      <a href="/about" class="nav__links-item">
+      <router-link class="nav__links-item" to="/about">
         About
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
