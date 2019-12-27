@@ -53,21 +53,17 @@ export default {
 
 <style lang="scss">
 .arrow {
-  &__container {
-  }
-
   &__button-back {
     position: fixed;
     left: 1.3%;
     bottom: 12px;
+    cursor: pointer;
   }
 
   &__button-up {
     position: fixed;
     left: 1.3%;
     bottom: 60px;
-  }
-  &__button {
     cursor: pointer;
   }
 }
