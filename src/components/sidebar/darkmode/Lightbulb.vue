@@ -4,12 +4,12 @@
       <img
         v-if="mode === 'LIGHT'"
         class="lightbulb__light"
-        src="../../../assets/images/bulb_no_light.svg"
+        src="../../../assets/images/bulb-light-mode.svg"
       />
       <img
         v-if="mode === 'DARK'"
         class="lightbulb__no-light"
-        src="../../../assets/images/bulb_light.svg"
+        src="../../../assets/images/bulb-dark-mode.svg"
       />
 
       <!-- overlays -->

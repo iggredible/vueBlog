@@ -24,7 +24,6 @@ export default new Vuex.Store({
       state.search = search;
     },
     SETUP_BLOG_DATA(state) {
-      console.log("CALLED");
       const devJson = state.devJson;
       const originalJson = state.originalJson;
 
@@ -80,7 +79,6 @@ export default new Vuex.Store({
       const sortedBlogsArr = normalizedBlogsKeys.sort(dateSortFunc).reverse();
 
       state.blogsJson = normalizedBlogs;
-      console.log("store blogsJson", normalizedBlogs);
       state.blogsArr = sortedBlogsArr;
     }
   },

@@ -9,6 +9,9 @@
       in Dallas.
     </p>
     <p class="about__content">
+    You can find me on <a href="https://twitter.com/iggredible">twitter</a> 😁.
+    </p>
+    <p class="about__content">
       <b>More to come...</b>
     </p>
   </div>

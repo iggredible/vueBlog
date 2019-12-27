@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="">
-    <SideBar />
+    <Lightbulb />
+    <Arrow />
     <Nav />
     <div class="app__container">
       <router-view />
@@ -10,13 +11,15 @@
 
 <script>
 import Nav from "./components/nav/Nav.vue";
-import SideBar from "@/components/sidebar/Sidebar";
+import Lightbulb from "@/components/sidebar/darkmode/Lightbulb.vue";
+import Arrow from "@/components/sidebar/navigation/Arrow.vue";
 
 export default {
   name: "App",
   components: {
     Nav,
-    SideBar
+    Lightbulb,
+    Arrow
   }
 };
 </script>
@@ -35,15 +38,20 @@ export default {
     padding: 1rem;
     margin: 0 auto;
     max-width: 645px;
+    min-height: 100vh;
 
+    /* medium mobile */
     @media only screen and (max-width: 768px) {
       padding-right: 5rem;
+      padding-left: 2.5rem;
     }
     /* small mobile (per bootstrap: 576px) */
     @media only screen and (max-width: 577px) {
       max-width: 580px;
-      margin-right: 40px; /* avoid overlap with bulb button */
+      margin-right: 2.5rem; /* avoid overlap with bulb button */
+      margin-left: 1.5rem;
       padding-right: 1rem;
+      padding-left: 1rem;
     }
   }
 }
