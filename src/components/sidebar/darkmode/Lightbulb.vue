@@ -120,9 +120,8 @@ export default {
     background: $lm-bg-button;
     border-radius: 50%;
     position: fixed;
-    /* top: 66px; if search had been on*/
-    top: 12px;
-    right: 1.6%;
+    bottom: 12px;
+    right: 1.3%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,6 +157,7 @@ export default {
   right: 50%;
   height: 1px;
   width: 1px;
+  z-index: 3;
 }
 
 .overlay-light span,
@@ -170,8 +170,12 @@ export default {
 
 .overlay-light span {
   background-color: $lm-bg-page;
+  position: absolute;
+  z-index: 3;
 }
 .overlay-dark span {
   background-color: $dm-bg-page;
+  position: absolute;
+  z-index: 4;
 }
 </style>

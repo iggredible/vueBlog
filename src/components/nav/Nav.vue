@@ -1,8 +1,20 @@
 <template>
   <div class="nav">
-    <router-link class="nav__item" to="/">
-      <h2 class="nav__header">irian.to</h2>
-    </router-link>
+    <div class="nav__main">
+      <router-link class="nav__main-item" to="/">
+        <h2 class="nav__header">irian.to</h2>
+      </router-link>
+    </div>
+
+    <div class="nav__links">
+      <a href="/blogs" class="nav__links-item">
+        Blogs
+      </a>
+
+      <a href="/about" class="nav__links-item">
+        About
+      </a>
+    </div>
   </div>
 </template>
 
@@ -11,15 +23,39 @@ export default {};
 </script>
 
 <style lang="scss">
+@import "@/assets/styles/colors.scss";
 .nav {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: space-between;
 
-  &__item {
+  &__main {
+    display: inline-block;
+    margin-left: 1rem;
+  }
+
+  &__links {
+    display: inline-block;
+    margin-right: 1rem;
+    @media only screen and (max-width: 577px) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__main-item {
     text-decoration: none;
     margin: 0.5rem 0;
+  }
+
+  &__links-item {
+    text-decoration: none;
+    margin: 0.5rem 1rem;
+    @media only screen and (max-width: 577px) {
+      margin: 0.5rem 0.25rem;
+    }
+    font-size: 1.25rem;
+    font-weight: 500;
   }
 
   &__header {

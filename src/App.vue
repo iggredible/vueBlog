@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="">
     <SideBar />
+    <Nav />
     <div class="app__container">
-      <Nav />
       <router-view />
     </div>
   </div>
@@ -32,14 +32,18 @@ export default {
 
 .app {
   &__container {
-    padding: 2rem 1rem;
+    padding: 1rem;
     margin: 0 auto;
     max-width: 645px;
 
+    @media only screen and (max-width: 768px) {
+      padding-right: 5rem;
+    }
     /* small mobile (per bootstrap: 576px) */
     @media only screen and (max-width: 577px) {
-      max-width: 600px;
+      max-width: 580px;
       margin-right: 40px; /* avoid overlap with bulb button */
+      padding-right: 1rem;
     }
   }
 }
@@ -74,7 +78,7 @@ pre code {
 pre {
   width: 100%;
   background: $lm-code-bg;
-  padding: 2rem 0.5rem;
+  padding: 2rem 0.15rem;
   overflow: scroll;
   border-radius: 6px;
 }
