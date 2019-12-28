@@ -1,15 +1,5 @@
 <template>
   <div v-if="!isHomePage" class="arrow__container">
-    <div class="arrow__button-back" @click="goBack">
-      <img
-        v-if="!isDarkMode"
-        src="../../../assets/images/back-button-light-mode.svg"
-      />
-      <img
-        v-if="isDarkMode"
-        src="../../../assets/images/back-button-dark-mode.svg"
-      />
-    </div>
     <div class="arrow__button-up" @click="goUp">
       <img
         v-if="!isDarkMode"
@@ -41,9 +31,6 @@ export default {
     }
   },
   methods: {
-    goBack() {
-      return this.$router.go(-1);
-    },
     goUp() {
       return window.scrollTo(0, 0);
     }
@@ -53,18 +40,12 @@ export default {
 
 <style lang="scss">
 .arrow {
-  &__button-back {
-    position: fixed;
-    left: 1.3%;
-    bottom: 12px;
-    cursor: pointer;
-  }
-
   &__button-up {
     position: fixed;
     left: 1.3%;
-    bottom: 60px;
+    bottom: 20px;
     cursor: pointer;
   }
 }
 </style>
+<

@@ -91,6 +91,9 @@ pre {
   border-radius: 6px;
 }
 
+img {
+  max-width: 100%;
+}
 #app.dark {
   a {
     color: $dm-font-link;
