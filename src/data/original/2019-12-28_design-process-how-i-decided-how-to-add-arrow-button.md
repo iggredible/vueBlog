@@ -1,7 +1,7 @@
 ---
 title: Design Process - Deciding Arrow Navigation Buttons
 published_at: 2019-12-28
-description: Test title
+description: Designing new components may be easier than you think
 ---
 
 I recently updated the buttons on my blogs. Creating the buttons weren't hard, but the process of deciding where they go, what they should look like, and what they should do is. I am going to share my design process.
