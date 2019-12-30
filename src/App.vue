@@ -85,9 +85,9 @@ pre code {
 }
 
 pre {
-  width: 100%;
+  max-width: 100%;
   background: $lm-code-bg;
-  padding: 2rem 0.15rem;
+  padding: 2rem 1.15rem;
   overflow: scroll;
   border-radius: 6px;
 }
