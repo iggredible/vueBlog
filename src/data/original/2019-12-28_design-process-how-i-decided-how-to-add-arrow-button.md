@@ -1,21 +1,19 @@
 ---
-title: Design Process - Deciding Arrow Navigation Buttons
+title: Deciding What Button To Add To My Site
 published_at: 2019-12-28
-description: Designing new components may be easier than you think
+description: How I come up with new navigation button on my site
 ---
 
-I recently updated the buttons on my blogs. Creating the buttons weren't hard, but the process of deciding where they go, what they should look like, and what they should do is. I am going to share my design process.
-
-My main goal is not for you guys to copy exactly what I did but to see the process that went through so you could emulate the process to come up with your own unique, better design. It's like give-a-man-a-fish-vs-teach-a-man-how-to-fish thing. I hope to impart the process thinking.
+I recently updated the buttons on my blogs. Creating the buttons weren't hard, but the process of deciding where they go, what they should look like, and what they should do is. Here I am going to share my design process. I hope to impart to you guys my design process thinking
 
 # Deciding what kind of User Experience I want to provide
 
-Before deciding, it is good to have a goal for my end users. I came up with two:
+It is good to have a goal for my readers. I came up with two:
 
 1. To provide minimal distraction so user can focus on page content.
 2. To provide ease navigating around so user can focus on page content
 
-Ultimately, my site should not throw some fancy JS animation. *Its main thing is to keep its main thing the main thing: the content.*
+I want a subtle helper that does not take away from the content. *Its main thing is to keep its main thing the main thing: the content.*
 
 
 # Current Design
@@ -23,7 +21,7 @@ Ultimately, my site should not throw some fancy JS animation. *Its main thing is
 This is the current site
 ![Current site - it only has bulb](https://firebasestorage.googleapis.com/v0/b/archer-import.appspot.com/o/blogs%2F2019%2F12%2F28%2Firiancurrent.png?alt=media&token=389ba3aa-f7ba-42a4-a878-468aefb3180b)
 
-What is currently missing? I can come up with infinite list, but two stood out: button to go to previous page and button to scroll up
+What is it lacking? I can come up with infinite list, but two stood out: button to go to previous page and button to scroll to top.
 
 There are other features that I'd like to add like: bookmarks, highlights, note-taking, etc. Those might come later, but for MVP, I decided that the easiest, most important features are the ability to go back and scroll up.
 
@@ -53,7 +51,7 @@ Some things that stood out:
 
 From inspirations, I decided on three things: dark-mode, back arrow, and scrollTop arrow. I also decided to put them in the bottom so they won't interfere with most people's [F-shaped reading pattern](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content-discovered/).
 
-This is what I came up with:
+This is what I came up with. Note the two buttons on bottom left:
 
 ![result with two sidebar arrows](https://firebasestorage.googleapis.com/v0/b/archer-import.appspot.com/o/blogs%2F2019%2F12%2F28%2Fresult-twoarrows.png?alt=media&token=e8f0e138-9dfa-4224-a94d-d4b8fc771fa3)
 

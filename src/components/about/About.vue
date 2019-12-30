@@ -9,11 +9,18 @@
       in Dallas.
     </p>
     <p class="about__content">
-    You can find me on <a href="https://twitter.com/iggredible">twitter</a> 😁.
+      You can find me on
+      <a href="https://twitter.com/iggredible">twitter</a> 😁.
     </p>
     <p class="about__content">
       <b>More to come...</b>
     </p>
+    <div class="about__image-container">
+      <img
+        src="../../assets/images/profile/iggy.png"
+        class="about__profile-photo"
+      />
+    </div>
   </div>
 </template>
 
@@ -24,6 +31,13 @@ export default {};
 <style lang="scss">
 .about {
   &__content {
+  }
+  &__profile-photo {
+    width: 300px;
+    height: auto;
+  }
+  &__image-container {
+    text-align: center;
   }
 }
 </style>

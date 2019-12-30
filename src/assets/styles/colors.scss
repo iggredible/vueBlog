@@ -11,7 +11,7 @@ $dm-bg-button: #333333;
 $dm-bg-button-border: #dddddd;
 $dm-shadow-button: #000000;
 
-/* LIGHT MODE COLORS */
+/* LIGHT MODE COLORS (lm) */
 $lm-font-link: #0074d9;
 $lm-font-precode: #444444;
 $lm-font-text: #333333;
@@ -22,3 +22,6 @@ $lm-bg-button-border: #333333;
 $lm-bg-page: #ffffff;
 $lm-shadow-button: #333333;
 $lm-code-bg: #eeeeee;
+
+/* mode agnostic colors (no-mode/ nm) */
+$nm-nav-underline: #f1c40f;
