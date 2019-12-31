@@ -71,6 +71,10 @@ export default {
 @import "@/assets/styles/colors.scss";
 
 .blogs {
+  &__container {
+    max-width: 645px;
+    margin: 0 auto;
+  }
   &__list {
     padding-left: 0;
   }

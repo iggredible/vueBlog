@@ -36,15 +36,12 @@ export default {
 .app {
   &__container {
     padding: 1rem;
+    padding-right: 5rem;
+    padding-left: 2.5rem;
     margin: 0 auto;
-    max-width: 645px;
+    max-width: 1024px;
     min-height: 100vh;
 
-    /* medium mobile */
-    @media only screen and (max-width: 768px) {
-      padding-right: 5rem;
-      padding-left: 2.5rem;
-    }
     /* small mobile (per bootstrap: 576px) */
     @media only screen and (max-width: 577px) {
       max-width: 580px;

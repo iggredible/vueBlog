@@ -16,6 +16,11 @@ export default {};
 
 <style lang="scss">
 .vim {
+  &__container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
   &__link-item {
     margin: 0 1.5rem 0 0;
   }

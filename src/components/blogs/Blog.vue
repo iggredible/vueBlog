@@ -32,6 +32,8 @@ export default {
 <style lang="scss">
 .blog {
   &__container {
+    max-width: 645px;
+    margin: 0 auto;
     img {
       height: auto;
       position: relative;
