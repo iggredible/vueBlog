@@ -211,7 +211,7 @@
     <div class="vimCheatsheet__section-item">p</div>
     <div class="vimCheatsheet__section-item">w</div>
     <div class="vimCheatsheet__section-item">s</div>
-    <div class="vimCheatsheet__section-item">[, (, {, <</div>
+    <div class="vimCheatsheet__section-item">[, (, {, &lt;</div>
     <div class="vimCheatsheet__section-item">',",`</div>
     <div class="vimCheatsheet__section-item">b block `[(`</div>
     <div class="vimCheatsheet__section-item">B block `[{`</div>
