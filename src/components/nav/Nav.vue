@@ -15,9 +15,9 @@
         About
       </router-link>
 
-      <!-- <router&#45;link class="nav__links&#45;item" to="/vim"> -->
-      <!--   Vim -->
-      <!-- </router&#45;link> -->
+      <router-link class="nav__links-item" to="/vim">
+        Vim
+      </router-link>
     </div>
   </div>
 </template>

@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <h1>Welcome to Vim page</h1>
-
-    <div>Cheatsheet</div>
-    <div>Articles</div>
-    <div>Resources</div>
+  <div class="vim__container">
+    <router-link class="vim__link-item" to="/vim/cheatsheet"
+      >Cheatsheet</router-link
+    >
+    <router-link class="vim__link-item" to="/vim/resources"
+      >Resources</router-link
+    >
+    <router-view></router-view>
   </div>
 </template>
 
@@ -12,4 +14,10 @@
 export default {};
 </script>
 
-<style></style>
+<style lang="scss">
+.vim {
+  &__link-item {
+    margin: 0 1.5rem 0 0;
+  }
+}
+</style>
