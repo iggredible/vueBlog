@@ -32,6 +32,10 @@ const LIGHT = "LIGHT";
 const DARK = "DARK";
 const calculateDiameter = (height, width) =>
   Math.sqrt(Math.pow(height, 2) + Math.pow(width, 2)) * 2;
+
+const LIGHT_BG = "#FFFFFF";
+const DARK_BG = "#333333";
+
 export default {
   data() {
     return {
@@ -56,14 +60,15 @@ export default {
         y: "-50%"
       });
     },
-    overlayExpander(timeline, el, type) {
+    overlayExpander(timeline, el, type, bodyBgColor) {
       if (type === "EXPAND") {
         return timeline.to(el, {
           translateZ: 0,
           scaleX: 1,
           scaleY: 1,
           duration: 0.22,
-          ease: "Power4.easeIn"
+          ease: "Power4.easeIn",
+          onComplete: () => (document.body.style.backgroundColor = bodyBgColor)
         });
       } else {
         return timeline.set(el, {
@@ -88,13 +93,13 @@ export default {
       if (!bulb.hasClass("dark-button")) {
         this.$store.dispatch("setMode", DARK);
         bulb.addClass("dark-button");
-        this.overlayExpander(tl, overlayDark, "EXPAND");
+        this.overlayExpander(tl, overlayDark, "EXPAND", DARK_BG);
         this.overlayExpander(tl, overlayDark, "NOT_EXPAND");
         this.mode = this.$store.state.mode;
       } else {
         this.$store.dispatch("setMode", LIGHT);
         bulb.removeClass("dark-button");
-        this.overlayExpander(tl, overlayLight, "EXPAND");
+        this.overlayExpander(tl, overlayLight, "EXPAND", LIGHT_BG);
         this.overlayExpander(tl, overlayLight, "NOT_EXPAND");
         this.mode = this.$store.state.mode;
       }
