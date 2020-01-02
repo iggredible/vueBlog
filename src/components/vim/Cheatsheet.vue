@@ -10,7 +10,7 @@
     </div>
     <div class="vimCheatsheet__section-container">
       <div class="vimCheatsheet__section">
-        <h2 class="vimCheatsheet__section-header">Exiting and saving Vim</h2>
+        <h2 class="vimCheatsheet__section-header">Quitting and saving Vim</h2>
 
         <div class="vimCheatsheet__section-item">
           <code class="vimCheatsheet__section-code">:q</code>
@@ -56,80 +56,247 @@
         <div class="vimCheatsheet__section-item">
           <code class="vimCheatsheet__section-code">ZQ</code>
           <span class="vimCheatsheet__section-description"
-            >Quit without checking changes -
+            >Quit without checking changes
           </span>
         </div>
       </div>
 
       <div class="vimCheatsheet__section">
-        <div class="vimCheatsheet__section-header">
+        <h2 class="vimCheatsheet__section-header">
           Basic movement
-        </div>
-        <div class="vimCheatsheet__section-item">h</div>
-        <div class="vimCheatsheet__section-item">j</div>
-        <div class="vimCheatsheet__section-item">k</div>
-        <div class="vimCheatsheet__section-item">l</div>
-      </div>
-
-      <div class="vimCheatsheet__section">
-        Scrolls
-        <div class="vimCheatsheet__section-item">&lt;C-Y&gt;, &lt;C-E&gt;</div>
-        <div class="vimCheatsheet__section-item">&lt;C-U&gt; /&lt;C-D&gt;</div>
-        <div class="vimCheatsheet__section-item">&lt;C-B&gt;, &lt;C-F&gt;</div>
-      </div>
-      <div class="vimCheatsheet__section">
-        Word navigaion
-        <div class="vimCheatsheet__section-item">b,w</div>
-        <div class="vimCheatsheet__section-item">B, W</div>
-        <div class="vimCheatsheet__section-item">e,ge</div>
-        <div class="vimCheatsheet__section-item">E, gE</div>
+        </h2>
         <div class="vimCheatsheet__section-item">
-          % - matching character, like (), {}, [] Default `:h matchpairs`
-        </div>
-      </div>
-      <div class="vimCheatsheet__section">
-        Line navigation
-        <div class="vimCheatsheet__section-item">0 ^ - first nonblank</div>
-        <div class="vimCheatsheet__section-item">$ g_ - last nonblank</div>
-      </div>
-      <div class="vimCheatsheet__section">
-        f{letter}, followed by ; or , t{letter}, followed by ; or , F{letter},
-        followed by ; or , T{letter}, followed by ; or ,
-      </div>
-
-      <div class="vimCheatsheet__section">
-        <div class="vimCheatsheet__section-item">
-          `*` -> search for word under cursor forward
+          <code class="vimCheatsheet__section-code">h</code>
+          <span class="vimCheatsheet__section-description">Move left</span>
         </div>
         <div class="vimCheatsheet__section-item">
-          `#` -> search for word under cursor backward
+          <code class="vimCheatsheet__section-code">j</code>
+          <span class="vimCheatsheet__section-description">Move down</span>
         </div>
-        <div class="vimCheatsheet__section-item">} - next paragraph</div>
-        <div class="vimCheatsheet__section-item">{ - prev paragraph</div>
-        <div class="vimCheatsheet__section-item">) - sentence</div>
-        <div class="vimCheatsheet__section-item">( - sentence</div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">k</code>
+          <span class="vimCheatsheet__section-description">Move up</span>
+        </div>
 
         <div class="vimCheatsheet__section-item">
-          [( [{ [&lt; Previous ( or { or &lt;
+          <code class="vimCheatsheet__section-code">l</code>
+          <span class="vimCheatsheet__section-description">Move right</span>
         </div>
-        <div class="vimCheatsheet__section-item">]) Next</div>
-        <div class="vimCheatsheet__section-item">[m Previous method start</div>
-        <div class="vimCheatsheet__section-item">[M Previous method end</div>
       </div>
 
       <div class="vimCheatsheet__section">
-        File/ document navigation
-        <div class="vimCheatsheet__section-item">gg</div>
-        <div class="vimCheatsheet__section-item">G</div>
-        <div class="vimCheatsheet__section-item">:n or nG</div>
+        <h2 class="vimCheatsheet__section-header">
+          Scrolling
+        </h2>
 
-        <div class="vimCheatsheet__section-item">zz</div>
-        <div class="vimCheatsheet__section-item">zt</div>
-        <div class="vimCheatsheet__section-item">H</div>
-        <div class="vimCheatsheet__section-item">M</div>
-        <div class="vimCheatsheet__section-item">L</div>
-        <div class="vimCheatsheet__section-item">nH</div>
-        <div class="vimCheatsheet__section-item">nL</div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">
+            &lt;C-Y&gt; / &lt;C-E&gt;
+          </code>
+          <span class="vimCheatsheet__section-description"
+            >Scroll up / down one line</span
+          >
+        </div>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">
+            &lt;C-D&gt; / &lt;C-U&gt;
+          </code>
+          <span class="vimCheatsheet__section-description"
+            >Scroll up / down 1/2 screen</span
+          >
+        </div>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">
+            &lt;C-F&gt; / &lt;C-B&gt;
+          </code>
+          <span class="vimCheatsheet__section-description"
+            >Scroll up / down full screen</span
+          >
+        </div>
+      </div>
+
+      <div class="vimCheatsheet__section">
+        <h2 class="vimCheatsheet__section-header">
+          Word navigation
+        </h2>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">b,w</code>
+          <span class="vimCheatsheet__section-description"
+            >Go backward / forward one word</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">B, W</code>
+          <span class="vimCheatsheet__section-description"
+            >Go backward / forward one WORD</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">e,ge</code>
+          <span class="vimCheatsheet__section-description"
+            >Go backward / forward to the end of a word</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">E, gE</code>
+          <span class="vimCheatsheet__section-description"
+            >Go backward / forward to the end of a WORD</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">%</code>
+          <span class="vimCheatsheet__section-description"
+            >Jump to next matching character ({}, [], ())</span
+          >
+        </div>
+      </div>
+
+      <div class="vimCheatsheet__section">
+        <h2 class="vimCheatsheet__section-header">
+          Line navigation
+        </h2>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">0 / $</code>
+          <span class="vimCheatsheet__section-description"
+            >Start / end of line</span
+          >
+        </div>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">^ / g_</code>
+          <span class="vimCheatsheet__section-description"
+            >First / last nonblank</span
+          >
+        </div>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">f{char} / F{char}</code>
+          <span class="vimCheatsheet__section-description"
+            >Go to next {char} occurrence forward/ backward</span
+          >
+        </div>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">t{char} / T{char}</code>
+          <span class="vimCheatsheet__section-description"
+            >Go till before next {char} occurrence forward/ backward</span
+          >
+        </div>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">; </code>
+          <span class="vimCheatsheet__section-description"
+            >Repeat next f/F/t/T</span
+          >
+        </div>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">; </code>
+          <span class="vimCheatsheet__section-description"
+            >Repeat next f/F/t/T, going opposite direction</span
+          >
+        </div>
+      </div>
+
+      <div class="vimCheatsheet__section">
+        <h2 class="vimCheatsheet__section-header">
+          Searching
+        </h2>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">*</code>
+          <span class="vimCheatsheet__section-description">
+            Search for word under cursor forward
+          </span>
+        </div>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">#</code>
+          <span class="vimCheatsheet__section-description">
+            Search for word under cursor backward
+          </span>
+        </div>
+      </div>
+
+      <div class="vimCheatsheet__section">
+        <h2 class="vimCheatsheet__section-header">
+          Other navigations
+        </h2>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">}</code>
+          <span class="vimCheatsheet__section-description"
+            >Go to next paragraph</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">{</code>
+          <span class="vimCheatsheet__section-description"
+            >Go to previous paragraph</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">)</code>
+          <span class="vimCheatsheet__section-description"
+            >Go to next sentence</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">(</code>
+          <span class="vimCheatsheet__section-description"
+            >Go to previous sentence</span
+          >
+        </div>
+      </div>
+
+      <div class="vimCheatsheet__section">
+        <h2 class="vimCheatsheet__section-header">
+          Document navigation
+        </h2>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">gg</code
+          ><span class="vimCheatsheet__section-description"
+            >Go to first line</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">G </code
+          ><span class="vimCheatsheet__section-description"
+            >Go to last line
+          </span>
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">:n / nG</code
+          ><span class="vimCheatsheet__section-description">Go to line n</span>
+        </div>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">zz</code
+          ><span class="vimCheatsheet__section-description"
+            >Redraw and center the window where cursor is</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">H </code
+          ><span class="vimCheatsheet__section-description"
+            >Go to top line of the window</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">M </code
+          ><span class="vimCheatsheet__section-description"
+            >Go to middle line of the window</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">L </code
+          ><span class="vimCheatsheet__section-description"
+            >Go to bottom line of the window</span
+          >
+        </div>
       </div>
       <div class="vimCheatsheet__section">
         Tabs
@@ -176,26 +343,130 @@
       </div>
 
       <div class="vimCheatsheet__section">
-        <div class="vimCheatsheet__section-item">Going to insert mode</div>
-        <div class="vimCheatsheet__section-item">a, A</div>
-        <div class="vimCheatsheet__section-item">i, I</div>
-        <div class="vimCheatsheet__section-item">o, O</div>
-        <div class="vimCheatsheet__section-item">s, S</div>
-        <div class="vimCheatsheet__section-item">c, C</div>
-        <div class="vimCheatsheet__section-item">r, R</div>
+        <h2 class="vimCheatsheet__section-header">
+          Replace mode
+        </h2>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">r</code
+          ><span class="vimCheatsheet__section-description"
+            >Replace character under cursor</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">R</code
+          ><span class="vimCheatsheet__section-description"
+            >Enter Replace mode</span
+          >
+        </div>
+      </div>
+
+      <div class="vimCheatsheet__section">
+        <h2 class="vimCheatsheet__section-header">
+          Going to insert mode
+        </h2>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">a </code
+          ><span class="vimCheatsheet__section-description"
+            >Insert text after cursor</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">A </code
+          ><span class="vimCheatsheet__section-description"
+            >Insert text at the end of line</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">i</code
+          ><span class="vimCheatsheet__section-description"
+            >Insert text before cursor</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">I</code
+          ><span class="vimCheatsheet__section-description"
+            >Insert text before first non-blank at line</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">o</code
+          ><span class="vimCheatsheet__section-description"
+            >Create new line below, go to insert mode</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">O</code
+          ><span class="vimCheatsheet__section-description"
+            >Create new line above, go to insert mode</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">s</code
+          ><span class="vimCheatsheet__section-description"
+            >Delete character, go to insert mode</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">S</code
+          ><span class="vimCheatsheet__section-description"
+            >Delete line, go to insert mode</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">C</code
+          ><span class="vimCheatsheet__section-description"
+            >Delete from cursor to end of line, go to insert mode</span
+          >
+        </div>
 
         <div class="vimCheatsheet__section-item">J, gJ</div>
-        <div class="vimCheatsheet__section-item">xp transpose letters</div>
-
-        <div class="vimCheatsheet__section-item">undo/ redo</div>
-        <div class="vimCheatsheet__section-item">u</div>
-        <div class="vimCheatsheet__section-item">&lt;C-R&gt;</div>
       </div>
+
       <div class="vimCheatsheet__section">
-        Exiting insert mode/ go back to normal mode
-        <div class="vimCheatsheet__section-item">Esc/ &lt;C-[&gt;</div>
+        <h2 class="vimCheatsheet__section-header">Joining 2 lines</h2>
         <div class="vimCheatsheet__section-item">
-          &lt;C-C&gt; - exit insert mode and abort command
+          <code class="vimCheatsheet__section-code">J</code
+          ><span class="vimCheatsheet__section-description"
+            >Join current line with below line, inserts space</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">gJ</code
+          ><span class="vimCheatsheet__section-description"
+            >Join current line with below line</span
+          >
+        </div>
+      </div>
+
+      <div class="vimCheatsheet__section">
+        <h2 class="vimCheatsheet__section-header">Undo / Redo</h2>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">u</code
+          ><span class="vimCheatsheet__section-description">Undo</span>
+        </div>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">&lt;C-R&gt;</code
+          ><span class="vimCheatsheet__section-description">Redo</span>
+        </div>
+      </div>
+
+      <div class="vimCheatsheet__section">
+        <h2 class="vimCheatsheet__section-header">
+          Exiting insert mode/ go back to normal mode
+        </h2>
+
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code">Esc / &lt;C-[&gt;</code>
+          <span class="vimCheatsheet__section-description"
+            >Exit insert mode</span
+          >
+        </div>
+        <div class="vimCheatsheet__section-item">
+          <code class="vimCheatsheet__section-code"> &lt;C-C&gt;</code
+          ><span class="vimCheatsheet__section-description"
+            >Exit insert mode, abort command</span
+          >
         </div>
       </div>
 
@@ -658,7 +929,7 @@ export default {};
 
     @media only screen and (min-width: 1024px) {
       float: left;
-      width: 33.333%;
+      width: 50%;
     }
   }
 
@@ -671,6 +942,10 @@ export default {};
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  &__section-description {
+    text-align: right;
   }
 }
 

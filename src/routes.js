@@ -23,24 +23,24 @@ const routes = {
       path: "/about",
       component: About,
       name: "About"
+    },
+    {
+      path: "/vim",
+      component: Vim,
+      name: "Vim",
+      children: [
+        {
+          path: "cheatsheet",
+          name: "VimCheatsheet",
+          component: VimCheatsheet
+        },
+        {
+          path: "resources",
+          name: "VimResources",
+          component: VimResources
+        }
+      ]
     }
-    // {
-    //   path: "/vim",
-    //   component: Vim,
-    //   name: "Vim",
-    //   children: [
-    //     {
-    //       path: "cheatsheet",
-    //       name: "VimCheatsheet",
-    //       component: VimCheatsheet
-    //     },
-    //     {
-    //       path: "resources",
-    //       name: "VimResources",
-    //       component: VimResources
-    //     }
-    //   ]
-    // }
   ]
 };
 
