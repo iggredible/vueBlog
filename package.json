@@ -14,7 +14,7 @@
     "dotenv": "8.2.0",
     "front-matter": "3.0.2",
     "fuzzysort": "1.1.4",
-    "gsap": "3.0.1",
+    "gsap": "3.6.0",
     "jquery": "3.4.1",
     "markdown-it": "10.0.0",
     "vue": "^2.6.10",
